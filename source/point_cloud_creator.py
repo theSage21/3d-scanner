@@ -15,9 +15,8 @@ def generate_point_cloud(context,vertices,name):
     return object_utils.object_data_add(context,mesh,operator=None)
 
 def generate_scenes(scene_list):
-    for scene in scene_list:
-        data=open_scene('scenes/'+scene)
+    for data in scene_list:
         mesh=generate_point_cloud(bpy.context,data,scene)
 
-scenes=os.listdir('scenes/')
-generate_scenes(scenes)
+data=open_scene('data')
+mesh=generate_point_cloud(bpy.context,data,'scene')
