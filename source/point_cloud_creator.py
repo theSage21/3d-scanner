@@ -17,6 +17,11 @@ def generate_point_cloud(context,vertices,name):
 def generate_scenes(scene_list):
     for data in scene_list:
         mesh=generate_point_cloud(bpy.context,data,scene)
+#ensure everything is deleted
+bpy.ops.object.select_all(action='TOGGLE')
+bpy.ops.object.delete(use_global=False)
+bpy.ops.object.select_all(action='TOGGLE')
+bpy.ops.object.delete(use_global=False)
 
 data=open_scene('data')
 mesh=generate_point_cloud(bpy.context,data,'scene')
